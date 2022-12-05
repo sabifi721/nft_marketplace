@@ -16,7 +16,7 @@ const Artworks = () => {
   }, [nfts, end])
 
   return (
-    <div className=" bg-pink-700" >
+    <div className="" >
       <div className="w-4/5 py-10 mx-auto " >
         <h4 className="text-white text-3xl font-bold uppercase text-gradient">
           {collection.length > 0 ? 'Latest Artworks' : 'No Artworks Yet'}
