@@ -1,7 +1,6 @@
 import timelessLogo from '../assets/sabifi.png'
 import { connectWallet } from '../Blockchain.Services'
 import { useGlobalState, truncate } from '../store'
-import { NavLink } from 'react-router-dom'
 
 const Header = () => {
   const [connectedAccount] = useGlobalState('connectedAccount')
@@ -9,7 +8,7 @@ const Header = () => {
     <nav className="w-4/5 flex md:justify-center justify-between items-center py-4 mx-auto">
       <div className="md:flex-[0.5] flex-initial justify-center items-center">
         <img
-          className="w-32 cursor-pointer"
+          className="h-40 cursor-pointer"
           src={timelessLogo}
           alt="Timeless Logo"
         />
@@ -20,14 +19,14 @@ const Header = () => {
         hidden list-none flex-row justify-between 
         items-center flex-initial"
       >
-        <NavLink exact activeClassName='active_class' to='/'className="mx-4 cursor-pointer  font-bold
-          ">Marketplace</NavLink>
-        <NavLink exact activeClassName='active_class' to='/token'className="mx-4 cursor-pointer font-bold
-          ">SABIFI Token</NavLink>
-        <NavLink exact activeClassName='active_class' to='/about'className="mx-4 cursor-pointer  font-bold
-          ">About Us</NavLink>
         <li className="mx-4 cursor-pointer font-bold
-          ">Whitepaper <a href="../assets/whitepaper.pdf"/> </li>
+          ">SBF Token</li>
+        <li className="mx-4 cursor-pointer  font-bold
+          ">About Us</li>
+        <li className="mx-4 cursor-pointer font-bold
+          ">Features</li>
+        <li className="mx-4 cursor-pointer  font-bold
+          ">Community</li>
       </ul>
 
       {connectedAccount ? (
