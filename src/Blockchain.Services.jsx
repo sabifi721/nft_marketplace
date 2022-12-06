@@ -1,5 +1,5 @@
 import Web3 from 'web3'
-import { setGlobalState, getGlobalState, setAlert } from './store'
+import { setGlobalState, getGlobalState } from './store'
 import abi from './abis/TimelessNFT.json'
 
 const { ethereum } = window
@@ -52,7 +52,6 @@ const isWallectConnected = async () => {
     if (accounts.length) {
       setGlobalState('connectedAccount', accounts[0].toLowerCase())
     } else {
-      alert('Please connect wallet.')
       console.log('No accounts found.')
     }
   } catch (error) {

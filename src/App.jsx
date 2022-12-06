@@ -1,16 +1,12 @@
 import { useEffect } from 'react'
 import { getAllNFTs, isWallectConnected } from './Blockchain.Services'
-import Alert from './components/Alert'
-import Artworks from './components/Artworks'
-import CreateNFT from './components/CreateNFT'
-import Footer from './components/Footer'
+import {Route, Switch} from "react-router-dom";
 import Header from './components/Header'
-import Hero from './components/Hero'
-import Loading from './components/Loading'
-import ShowNFT from './components/ShowNFT'
-import Transactions from './components/Transactions'
-import UpdateNFT from './components/UpdateNFT'
-
+import Token from './components/Token'
+import Error from './components/Error'
+import Home from './components/Home';
+import Footer from './components/Footer';
+import About from './components/About';
 const App = () => {
   useEffect(async () => {
     await isWallectConnected()
@@ -18,24 +14,19 @@ const App = () => {
   }, [])
 
   return (
-   
-    <div className="min-h-screen">
-      <div className="gradient-bg-hero bg-pink-700">
-        <Header />
-        <Hero />
-      </div>
-     
-
-      <Artworks />
-      <Transactions />
-      <CreateNFT />
-      <ShowNFT />
-      <UpdateNFT />
-      <Footer />
-      <Alert />
-      <Loading />
-    </div>
+    <>
+    <div className="bg-gradient-to-b from-neutral-900 bg-indigo-700">
+  <Header />
+   <Switch>
+    <Route exact path='/' component={Home}/>
+    <Route exact path='/token' component={Token}/>
+    <Route exact path='/about' component={About}/>
+    <Route component={Error}/>
+   </Switch>
+   <Footer/>
+   </div>
+    </>
   )
 }
 
-export default App
+export default App;
